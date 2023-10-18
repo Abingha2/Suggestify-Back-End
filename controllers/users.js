@@ -16,6 +16,16 @@ router.get("/", async (req, res) => {
     }
 })
 
+//USER
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).populate("collectionsName")
+    res.json(user)
+  } catch (error) {
+    res.status(400).json(error)
+  }
+})
+
 // USER CREATE ROUTE 
 router.post("/", async (req, res) => {
     try {
