@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     }
 })
 
-//USER
+//USER Show Route
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("collectionsName")
